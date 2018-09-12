@@ -1,0 +1,11 @@
+.DS_Store
+*.gz
+node_modules
+.vscode
+.idea
+package-lock.json
+dist
+static/app/configs/module-config.js
+logs
+coverage
+.npm
