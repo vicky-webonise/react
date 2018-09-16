@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../components/common/Banner';
 
 export default class Home extends React.Component {
     constructor() {
@@ -11,8 +12,11 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <div className="">
-                Home page
+            <div>
+                <Banner />
+                <div className="container py-3">
+                    Home page
+                </div>
             </div>
         )
     }

@@ -8,10 +8,8 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <Header />
-        <div className="container">
-          {/* <h4>test</h4> */}
-          {this.props.children}
-        </div>
+        {/* <h4>test</h4> */}
+        {this.props.children}
         <Footer />
       </React.Fragment>
     );
