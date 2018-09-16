@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export default class Header extends React.Component {
   constructor() {
     super();
@@ -7,8 +7,8 @@ export default class Header extends React.Component {
 
     };
   }
-
   render() {
+    const isActive = (path, match, location) => !!(match || path === location.pathname);
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
@@ -18,11 +18,11 @@ export default class Header extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to='/' className="nav-link">Home</Link>
+              <li className="nav-item">
+                <NavLink exact to='/' className="nav-link" activeClassName="text-primary">Home</NavLink>
               </li>
               <li className="nav-item">
-                <Link to='/blog' className="nav-link">Blog</Link>
+                <NavLink exact to='/blog' className="nav-link" activeClassName="text-primary" isActive={isActive.bind(this, '/blog/2')}>Blog</NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" href="#">Disabled</a>
