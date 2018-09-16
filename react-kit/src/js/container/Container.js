@@ -8,7 +8,6 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <Header />
-        {/* <h4>test</h4> */}
         {this.props.children}
         <Footer />
       </React.Fragment>

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import InnerBanner from './common/InnerBanner';
 import PageLoader from './common/PageLoader';
+import API from '../constants/api-endpoint';
 
 export default class BlogDetail extends React.Component {
     constructor() {
@@ -18,7 +19,8 @@ export default class BlogDetail extends React.Component {
     }
 
     _getPostDetailData() {
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.postId}`)
+        let url = API.postId(this.props.match.params.postId)
+        axios.get(url)
         .then(response => {
             const postDetailData = response.data;
             this.setState({
@@ -29,6 +31,10 @@ export default class BlogDetail extends React.Component {
         })
 
         .catch(error => {
+            this.setState({
+                postDetailData: [],
+                isLoading: false
+            });
             console.log(error);
         })
     }

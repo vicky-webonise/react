@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import InnerBanner from './common/InnerBanner';
 import PageLoader from './common/PageLoader';
+import API from '../constants/api-endpoint';
 
 export default class Blog extends React.Component {
     constructor(){
@@ -18,7 +19,8 @@ export default class Blog extends React.Component {
     }
 
     _getPostData () {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        let url = API.post;
+        axios.get(url)
         .then(response => {
             const postData = response.data;
             this.setState({
@@ -30,6 +32,10 @@ export default class Blog extends React.Component {
         })
 
         .catch(error => {
+            this.setState({
+                postData: [],
+                isLoading: false
+            });
             console.log(error);
         })
 
