@@ -52,6 +52,14 @@ export default class Blog extends React.Component {
                 <div className="container py-3">
                     <h1>Blog</h1>
                     <p className="h6">Blog sub heading</p>
+                    <div className="form-group">
+                        <label>Search for...</label>
+                        <input type="text" 
+                          className="form-control" 
+                          placeholder="Search for..." 
+                        />
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
                     {this.state.isLoading && <PageLoader />}
                     <div className="row">
                         {
